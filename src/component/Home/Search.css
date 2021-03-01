@@ -1,0 +1,138 @@
+.imagecontainer{
+    background: url('https://i.ibb.co/85b18PM/food-wallpaper.png'),linear-gradient(to bottom,rgba(48, 0, 0, 0),rgb(48, 0, 0,1));
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid gray;
+}
+
+body{
+    margin: auto;
+}
+
+.cra{
+    width: 180px;
+    height: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    color: whitesmoke;
+    text-decoration:none;
+    text-align: center;
+    float: right;
+    text-decoration: none;
+
+}
+
+.rec{
+    width: 180px;
+    height: 20px;
+    margin-top:13px;
+    padding: 11px 15px 22px 15px;
+    border-radius: 2px;
+    border: solid 1px whitesmoke;
+    margin-right:60px;
+    box-shadow:0 1px 2px 2px white;
+}
+
+.rec:hover{
+    transform: scale(1.1,1.1);
+    
+}
+
+.log{
+    width: 70px;
+    height: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.56;
+    text-align: left;
+    color:whitesmoke ;
+    margin-top: 22px;
+    text-decoration:none;
+    float: right;
+}
+
+.log:hover{
+    transform: scale(1.1,1.1);    
+}
+
+.social_logo{
+    height:50px;
+    width:50px;
+}
+
+.modal-title{
+    color: darkslateblue;
+    font-weight: 700;
+}
+
+#logo{
+    text-align: center;
+    color: red;
+    font-size:85px;
+    background-color: white;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+#heading{
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.locationselector{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.dropdown1{
+    height: 50px;
+    width: 250px;
+    font-size: 18px;
+    text-align: center;
+    
+}
+
+select:not(:valid) {
+    color: #999;
+  }
+
+.searchstyle{
+    font-family: Arial,FontAwesome; 
+    height: 50px;
+    width: 250px;
+    font-size: 18px;
+    color: #999;
+}
+
+a{
+    text-decoration: none;
+}
+
+.style{
+    text-align: center;
+}
+
+.welcome{
+    width: 205px;
+    height: 20px;
+    margin-top:25px;
+    margin-right:60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    color: whitesmoke;
+    text-decoration:none;
+    text-align: center;
+    float: right;
+}

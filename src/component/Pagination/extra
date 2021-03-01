@@ -1,0 +1,40 @@
+import React,{Component} from 'react';
+import axios from 'axios';
+import ReactPaginate from 'react-paginate';
+
+const url = "http://localhost:9900/rest?mealtype=1"
+
+class Pagination extends Component{
+  pagination = (event) => {
+        let mealId = sessionStorage.getItem('mealId')
+        let limit = event.target.value
+        console.log("limit",event.target.value)
+        let Url;
+        if(limit==''){
+            Url=`${url}${mealId}`;
+        }else{
+            Url=`${url}${mealId}&limit=${limit}`;
+        }
+        axios.get(Url)
+            .then((response) => {this.props.restPerLimit(response.data)})
+    }
+    render(){
+        return(
+            <React.Fragment>
+               
+                    <div onChange={this.pagination}>
+                        <a href="">prev</a>
+                        <a href="" class="one" value="1">1</a>
+                        <a href="" class="one" value="2">2</a>
+                        <a href="" class="one" value="3">3</a>
+                        <a href="" class="one" value="4">4</a>
+                        <a href="" class="one" value="5">5</a>
+                        <a href="">next</a>
+                    </div>
+            </React.Fragment>
+        )
+    }
+}
+
+export default Pagination;
+

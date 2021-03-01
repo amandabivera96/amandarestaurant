@@ -1,0 +1,72 @@
+<div id="filterbox">
+                    <p class="filters">
+                        Filters
+                    </p>
+                    <p class="sub">
+                        Select Location
+                    </p>
+                        <!--location selector-->
+                        <div class="locationSelector">
+                            <select class="dropdown">
+                                <option value="1">Select Location</option>
+                                <option value="1">Delhi</option>
+                                <option value="2">Mumbai</option>
+                                <option value="3">Chandigarh</option>
+                            </select> 
+                        </div>
+                        <!--location selector end-->
+                        <!--Cuisine heading-->
+                        <div class="sub">
+                            <p>Cuisine</p>
+                        </div>
+                            <!--checkbox-->
+                            <div class="list">
+                                <input type="checkbox">North Indian</input>
+                            </div>
+                            <div class="list">
+                                <input type="checkbox">South Indian</input>
+                            </div>
+                            <div class="list">
+                                <input type="checkbox">Chinese</input>
+                            </div>
+                            <div class="list">
+                                <input type="checkbox">Fast Food</input>
+                            </div>
+                            <div class="list">
+                                <input type="checkbox">Street Food</input>
+                            </div>
+                            <!--checkbox end-->
+                        <!--cost for two heading-->
+                        <div class="sub">
+                            <p>Cost For Two</p>
+                        </div>
+                            <!--radio button-->
+                            <div class="list">
+                                <input type="radio" name="list" value="Less than 500">Less than <i class="fa fa-inr" aria-hidden="true"> 500</i></input>
+                            </div>
+                            <div class="list">
+                                <input type="radio" name="list" value="500 to 1000"><i class="fa fa-inr" aria-hidden="true"> 500</i> to <i class="fa fa-inr" aria-hidden="true"> 1000</i></input>
+                            </div>
+                            <div class="list">
+                                <input type="radio" name="list" value="1000 to 1500"><i class="fa fa-inr" aria-hidden="true"> 1000</i> to <i class="fa fa-inr" aria-hidden="true"> 1500</i></input>
+                            </div>
+                            <div class="list">
+                                <input type="radio" name="list" value="1500 to 2000"><i class="fa fa-inr" aria-hidden="true"> 1500</i> to <i class="fa fa-inr" aria-hidden="true"> 2000</i></input>
+                            </div>
+                            <div class="list">
+                                <input type="radio" name="list" value="2000 plus"><i class="fa fa-inr" aria-hidden="true"> 2000+</i></input>
+                            </div>
+                            <!--radio button end-->
+                        <!--=sort heading-->
+                        <div class="sub">
+                            <p>Sort</p>
+                        </div>
+                            <!--radio button-->
+                            <div class="list">
+                                <input type="radio" name="list" value="Price low to high">Price low to high</input>
+                            </div>
+                            <div class="list">
+                                <input type="radio" name="list" value="Price high to low">Price high to low</input>
+                            </div>
+                            <!--radio button end-->
+                </div>
