@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import axios from 'axios'
 import {withRouter} from 'react-router-dom';
 import './Search.css';
 
@@ -166,11 +167,12 @@ class Search extends Component{
                 sessionStorage.setItem('username',user)
                 fetch(url,{method:'GET'})
                 .then((res) => res.json())
-                .then((data) => this.setState({city:data,username:user}))
+                .then((data) => this.setState({username:user}))
             })
         }
-       
-    }
+
+            axios.get(url).then((res) => {this.setState({city:res.data})})
+        }  
 }
 
 export default withRouter(Search);
