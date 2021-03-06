@@ -1,11 +1,11 @@
 import React,{Component} from 'react';
 import axios from 'axios'
+import ReactPaginate from 'react-paginate';
 import ListingDisplay from './listingDisplay'
 import Header from '../../Header';
 import CuisineFilter from '../Filters/cuisineFilter'
 import CostFilter from '../Filters/costFilter'
 import SortFilter from '../Filters/sortFilter'
-import Pagination from '../Pagination/pagination'
 
 
 const url = "https://amandarest.herokuapp.com/rest?mealtype="
@@ -15,8 +15,36 @@ class ListingApi extends Component{
         super(props)
 
         this.state={
-            restlist:''
+            restlist:[],
+            offset:0,
+            restData:[],
+            perPage:2,
+            currentPage:0
         }
+
+        this.handlePageClick = this.handlePageClick.bind(this);
+    }
+
+    handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        const offset = selectedPage * this.state.perPage;
+
+        this.setState({
+            currentPage:selectedPage,
+            offset:offset
+        },()=>{
+            this.loadMoreData();
+        })
+    }
+
+    loadMoreData(){
+        const data = this.state.restData;
+
+        const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+        this.setState({
+            pageCount: Math.ceil(data.length / this.state.perPage),
+            restlist:slice
+        })
     }
 
     setDataFilter = (sortedData) => {
@@ -57,9 +85,19 @@ class ListingApi extends Component{
                 <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                     <ListingDisplay restaurantList={this.state.restlist}/>
                 </div>
-                
-                <div class="pagination">
-                    <Pagination restPerLimit={(data) => {this.setDataFilter(data)}}/>
+                <div style={{textAlign:'left'}}>
+                <ReactPaginate
+                    previousLabel={"prev"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={this.state.pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
                 </div>
             </div>
         )
@@ -68,8 +106,15 @@ class ListingApi extends Component{
     componentDidMount(){
         var mealId = this.props.match.params.id
         sessionStorage.setItem('mealId',mealId)
-        axios.get(`${url}${mealId}`)
-        .then((response) => this.setState({restlist:response.data}))
+        fetch(`${url}${mealId}`,{method:'GET'})
+        .then((res) => res.json())
+        .then((data) => {
+            var slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+            this.setState({
+                pageCount: Math.ceil(data.length / this.state.perPage),
+                restlist:slice,
+                restData:data})
+        })
     }
 }
 
